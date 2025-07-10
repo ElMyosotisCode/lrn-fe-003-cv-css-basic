@@ -1,0 +1,406 @@
+/*
+Notes:
+-- Unit Conversion --
+---------------------
+* 1 rem --> 16 px | * 1 rem --> 12 pt
+
+-- CSS Styling Order System --
+------------------------------
+I use my own custom CSS Architecture for prioritizing maintainability,
+which I named it 'FoCoMUR' styling system
+* 1.Fo - Foundation  : Reset, Variables, Base Elements
+    (e.g., :root, body, h1, etc.)
+* 2.Co - Component   : BEM Blocks/Elements
+    (e.g., .navbar, .card__image, etc.)
+* 3.M - Modifier     : State/theme Overrides
+    (e.g., .button--is-active, .image--is-hidden, etc.)
+* 4.U - Utilities    : Atomic helpers
+    (e.g., .u-margin-top-10, .util-text-center, etc.)
+* 5.R - Responsive   : Mobile-first media queries
+    (e.g., @media (min-width: 768px) { ... },etc.)
+*/
+
+/*  # -------------------------------------------------- #
+    #                   Foundation                       #
+    # -------------------------------------------------- # */
+* {
+    /* --- Box Model --- */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* --- Variables --- */
+    /* *8-Point Spacing System */
+    --space-xxs: 0.25rem;   /* 4px - For Small Detail */
+    --space-xs: 0.5rem;     /* 8px - Space between small elements */
+    --space-sm: 1rem;       /* 16px - Space between items inside a component */
+    --space-md: 1.5rem;     /* 24px - Space between paragraph or the suchlike */
+    --space-lg: 2rem;       /* 32px - Space padding inside small component */
+    --space-xl: 3rem;       /* 48px - Space padding inside section */
+    --space-2xl: 4rem;      /* 64px - Big space when needed */
+    --space-3xl: 5rem;      /* 80px - More bigger space when needed */
+    --space-4xl: 6rem;      /* 96px - Extra big space when needed */
+    --space-5xl: 7rem;      /* 128px - Extra big space when needed */
+    --space-6xl: 8rem;      /* 160px - Extra big space when needed */
+
+    /* *Typographic Scale System */
+    --font-size-xs: 0.75rem;    /* 12px or 9pt */
+    --font-size-sm: 0.875rem;   /* 14px or 10.5pt */
+    --font-size-base: 1rem;     /* 16px or 12pt */
+    --font-size-md: 1.25rem;    /* 18px or 15pt */
+    --font-size-lg: 1.5rem;     /* 24px or 18pt */
+    --font-size-xl: 2rem;       /* 32px or 24pt */
+    --font-size-2xl: 2.5rem;    /* 40px or 30pt */
+    --font-size-3xl: 3rem;      /* 48px or 36pt */
+    --font-size-4xl: 3.5rem;    /* 64px or 48pt */
+
+    /* *Line Height */
+    --line-height-tight: 1.2;   /* Line spacing for heading text (h1,h2,h3,etc.) */
+    --line-height-normal: 1.6;  /* Line spacing for body text */
+    --line-height-loose: 2;     /* Optional line spacing for large text blocks */
+
+    /* *Coloring */
+    --color-light-gray: rgb(230, 230, 230);
+    --color-light-blue: rgb(32, 114, 202);
+    --color-light-red: rgb(251, 70, 70);
+    --color-light-violet: rgb(207, 159, 255);
+    --color-solid-black: rgb(0, 0, 0);
+    --color-solid-white: rgb(255, 255, 255);
+
+    /* *Line Height - DEPRECATED VERSION */
+    --line-space-single-line: 1.375;
+    --line-space-single-plus-half-lines: 1.5;
+    --line-space-double-lines: 2;
+
+    /* *Paragraph Spacing - DEPRECATED VERSION */
+    --pc-paragraph-space-12pt-single-line: 1.15rem;    /* 18.4px */
+
+    /* *Font Size - DEPRECATED VERSION */
+    --font-size-6pt: 0.5rem;    /* 8px */
+    --font-size-8pt: 0.667rem;  /* 10.672px */
+    --font-size-9pt: 0.75rem;   /* 12px */
+    --font-size-10pt: 0.833rem; /* 13.33px */
+    --font-size-11pt: 0.917rem; /* 14.67px */
+    --font-size-12pt: 1rem;     /* 16px */
+    --font-size-14pt: 1.167rem; /* 18.67px */
+    --font-size-16pt: 1.333rem; /* 21.33px */
+    --font-size-18pt: 1.5rem;   /* 24px */
+    --font-size-20pt: 1.667rem; /* 26.67px */
+    --font-size-22pt: 1.833rem; /* 29.33px */
+    --font-size-24pt: 2rem;     /* 32px */
+    --font-size-26pt: 2.167rem; /* 34.67px */
+    --font-size-28pt: 2.333rem; /* 37.33px */
+    --font-size-30pt: 2.5rem;   /* 40px */
+}
+
+html {
+    /* --- Box Model --- */
+    padding: var(--space-xl);
+
+    /* --- Interaction, Animation, & Misc --- */
+    scroll-behavior: smooth;
+}
+
+body {
+    /* --- Typography --- */
+    font-family: 'Arial', sans-serif;
+    line-height: var(--line-height-normal);
+}
+
+hr {
+    /* --- Box Model Properties --- */
+    margin-bottom: var(--space-sm);
+    border: none;
+    border-top: 0.125rem solid var(--color-solid-black);
+}
+
+/*  # -------------------------------------------------- #
+    #                   Component                        #
+    # -------------------------------------------------- # */
+
+/* -# Navigation Menu */
+.nav-menu {
+    /* --- Box Model --- */
+    margin-bottom: var(--space-xl);
+    padding: var(--space-xs);
+    border-radius: 0.5rem;
+
+    /* --- Visual & Appearance --- */
+    background-color: var(--color-light-gray);
+}
+
+.nav-menu__list-container {
+    /* --- Layout & Positioning --- */
+    display: flex;
+    gap: var(--space-6xl);
+    justify-content: center; /* <-- Ditambahkan untuk menengahkan item flex */
+    
+    /* --- Typography --- */
+    list-style: none;
+}
+
+.nav-menu__link {
+    /* --- Typography --- */
+    color: var(--color-light-blue);
+    text-decoration: none;
+}
+
+/* -# Personal Info */
+.personal-info {
+    /* --- Box Model --- */
+    margin-bottom: var(--space-lg);
+
+    /* --- Typography --- */
+    text-align: center;
+}
+
+.personal-info__full-name {
+    /* --- Typography --- */
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-tight);
+}
+
+.personal-info__job-title {
+    /* --- Typography --- */
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-tight);
+}
+
+.personal-info__contact {
+    /* --- Typography --- */
+    font-size: var(--font-size-base);
+    font-weight: normal;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-normal);
+}
+
+.personal-info__contact-link {
+    /* --- Typography --- */
+    color: var(--color-light-blue);
+    text-decoration: none;
+}
+
+/* -# Summary Section */
+.summary {
+    /* --- Box Model --- */
+    margin-bottom: var(--space-lg);
+}
+
+.summary__title {
+    /* --- Typography --- */
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-tight);
+}
+
+.summary__description {
+    /* --- Typography --- */
+    font-size: var(--font-size-base);
+    font-weight: normal;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-normal);
+}
+
+/* -# Working Experience Section */
+.work-exp {
+    /* --- Box Model --- */
+    margin-bottom: var(--space-lg);
+}
+
+.work-exp__title {
+    /* --- Typography --- */
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-tight);
+}
+
+.work-exp__company-name {
+    /* --- Typography --- */
+    font-size: var(--font-size-md);
+    font-weight: bold;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-tight);
+}
+
+.work-exp__job-occupation {
+    /* --- Box Model --- */
+    margin-bottom: var(--space-sm);
+
+    /* --- Typography --- */
+    font-size: var(--font-size-md);
+    font-weight: bold;
+    font-style: italic;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-tight);
+}
+
+.work-exp__points-container {
+    /* --- Box Model --- */
+    padding-left: var(--space-md);
+
+    /* --- Typography --- */
+    list-style: disc;
+}
+
+.work-exp__points-item {
+    /* --- Typography --- */
+    font-size: var(--font-size-base);
+    font-weight: normal;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-normal);
+}
+
+/* -# Organization Experience Section */
+.org-exp {
+    /* --- Box Model --- */
+    margin-bottom: var(--space-lg);
+}
+
+.org-exp__title {
+    /* --- Typography --- */
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-tight);
+}
+
+.org-exp__job-institution-name {
+    /* --- Typography --- */
+    font-size: var(--font-size-md);
+    font-weight: bold;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-tight);
+}
+
+.org-exp__job-occupation {
+    /* --- Box Model --- */
+    margin-bottom: var(--space-sm);
+
+    /* --- Typography --- */
+    font-size: var(--font-size-md);
+    font-weight: bold;
+    font-style: italic;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-tight);
+}
+
+.org-exp__points-container {
+    /* --- Box Model --- */
+    padding-left: var(--space-md);
+    margin-bottom: var(--space-sm);
+
+    /* --- Typography --- */
+    list-style: disc;
+}
+
+.org-exp__points-item {
+    /* --- Typography --- */
+    font-size: var(--font-size-base);
+    font-weight: normal;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-normal);
+}
+
+/* -# Educational Background */
+.education {
+    /* --- Box Model --- */
+    margin-bottom: var(--space-lg);
+}
+
+.education__title {
+    /* --- Typography --- */
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-tight);
+}
+
+.education__institution-name {
+    /* --- Typography --- */
+    font-size: var(--font-size-md);
+    font-weight: bold;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-tight);
+}
+
+.education__field-of-study {
+    /* --- Box Model --- */
+    margin-bottom: var(--space-sm);
+
+    /* --- Typography --- */
+    font-size: var(--font-size-md);
+    font-weight: bold;
+    font-style: italic;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-tight);
+}
+
+.education__points-container {
+    /* --- Box Model --- */
+    padding-left: var(--space-md);
+    margin-bottom: var(--space-sm);
+
+    /* --- Typography --- */
+    list-style: disc;
+}
+
+.education__points-item {
+    /* --- Typography --- */
+    font-size: var(--font-size-base);
+    font-weight: normal;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-normal);
+}
+
+/* -# Skills */
+.skills {
+    /* --- Box Model --- */
+    margin-bottom: var(--space-lg);
+}
+
+.skills__title {
+    /* --- Typography --- */
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-tight);
+}
+
+.skills__category-name {
+    /* --- Typography --- */
+    font-size: var(--font-size-md);
+    font-weight: bold;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-tight);
+}
+
+.skills__description {
+    /* --- Box Model --- */
+    margin-bottom: var(--space-sm);
+
+    /* --- Typography --- */
+    font-size: var(--font-size-base);
+    font-weight: normal;
+    color: var(--color-solid-black);
+    line-height: var(--line-height-normal);
+}
+
+/*  # -------------------------------------------------- #
+    #                   Modifier                         #
+    # -------------------------------------------------- # */
+
+/*  # -------------------------------------------------- #
+    #                  Utilities                         #
+    # -------------------------------------------------- # */
+
+/*  # -------------------------------------------------- #
+    #              Responsive Media                      #
+    # -------------------------------------------------- # */
