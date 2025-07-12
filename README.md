@@ -9,7 +9,7 @@ In this progress session, I added CSS basic styling rules, such as: ✌
 - CSS Simple Reset
 - CSS Variables
 - CSS Layout and Positioning
-- CSS Bos Model
+- CSS Box Model
 - CSS Typography
 
 --
