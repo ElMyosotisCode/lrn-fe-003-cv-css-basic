@@ -3,9 +3,9 @@
 Hello... 😃👋🏻  
 It's me Misael Randy Limpaty (ElMyosotisCode) your future Front End Developer Expert.
 
-This project is a continuation of “ATS-Based CV”, where I added in all the CV contents that I wanted in my CV.
-
 --
+
+This project is a continuation of “ATS-Based CV”, where I added some small visual updates to improve the looks of my "CV-ATS based" website.
 
 ## Learning Module Session 3 -> CSS Basics Styling
 
