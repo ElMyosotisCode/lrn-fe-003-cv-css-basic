@@ -19,8 +19,8 @@ In this progress session, I added CSS basic styling rules, such as: ✌
 Also...
 In this session, I learned about the importance of using CSS to style my web page and make it look more appealing.
 
-I learned how to use CSS variables to make my code more maintainable and easier to read,
-and how to use CSS box model to control the layout and positioning of elements on my web page.
+I learned how to use `CSS variables` to make my code more maintainable and easier to read,
+and how to use `CSS box model` to control the layout and positioning of elements on my web page.
 
 ## Screenshots
 
