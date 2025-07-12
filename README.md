@@ -3,7 +3,11 @@
 Hello... 😃👋🏻  
 It's me Misael Randy Limpaty (ElMyosotisCode) your future Front End Developer Expert.
 
-This project is the continuation of "ATS Based CV".
+This project is a continuation of “ATS-Based CV”, where I added in all the CV contents that I wanted in my CV.
+
+--
+
+## Learning Module Session 3 -> CSS Basics Styling
 
 In this progress session, I added CSS basic styling rules, such as: ✌
 - CSS Simple Reset
@@ -12,13 +16,10 @@ In this progress session, I added CSS basic styling rules, such as: ✌
 - CSS Box Model
 - CSS Typography
 
---
-
-## Learning Module Session 3 -> CSS Basics Styling
-
+Also...
 In this session, I learned about the importance of using CSS to style my web page and make it look more appealing.
 
-Also I learned how to use CSS variables to make my code more maintainable and easier to read,
+I learned how to use CSS variables to make my code more maintainable and easier to read,
 and how to use CSS box model to control the layout and positioning of elements on my web page.
 
 ## Screenshots
