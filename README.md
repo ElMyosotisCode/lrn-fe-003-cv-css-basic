@@ -14,7 +14,10 @@ In this progress session, I added CSS basic styling rules, such as: ✌
 
 --
 
-What I learned in this project is how to add and use CSS external to style my web page and make it look more appealing.
+## Learning Module Session 3 -> CSS Basics Styling
+
+In this session, I learned about the importance of using CSS to style my web page and make it look more appealing.
+
 Also I learned how to use CSS variables to make my code more maintainable and easier to read,
 and how to use CSS box model to control the layout and positioning of elements on my web page.
 
